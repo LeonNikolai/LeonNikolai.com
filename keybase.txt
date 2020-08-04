@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/leonnikolai
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://leonnikolai.com
+  * I am leonnikolai (https://keybase.io/leonnikolai) on keybase.
+  * I have a public key ASDl54iwsOMayJDiyuV1bwYX9-QWuYBUbuPNvNR-WoVkzwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120568d5134df4ddef55d020aa65f4569300471b9651d85d7a671a95d7932dc99740a",
+      "host": "keybase.io",
+      "kid": "0120e5e788b0b0e31ac890e2cae5756f0617f7e416b980546ee3cdbcd47e5a8564cf0a",
+      "uid": "f936f29f2c97e5e2e2fd1ca5fb7cee19",
+      "username": "leonnikolai"
+    },
+    "merkle_root": {
+      "ctime": 1569236323,
+      "hash": "9b024877bcb2cf44f9eef7276097caa9b5fef060ae8fdac2e4e6e748329b9cb3fa477389d1d970ca19679dd2deac531eec5338f78479019a18da29ccfef0a9c3",
+      "hash_meta": "6d39ae71598b37290774d6460959d15f0be98657a7c8c1a045154a4aa2895e1d",
+      "seqno": 7699462
+    },
+    "service": {
+      "entropy": "4Q3bwNjfFjdMrT5fsoQ2gke5",
+      "hostname": "leonnikolai.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.5.0"
+  },
+  "ctime": 1569236345,
+  "expire_in": 504576000,
+  "prev": "a52ccf137cf3263c50d9bcb59276a8797c22684b572805d1008444127c137e49",
+  "seqno": 26,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg5eeIsLDjGsiQ4srldW8GF/fkFrmAVG7jzbzUflqFZM8Kp3BheWxvYWTESpcCGsQgpSzPE3zzJjxQ2by1knaoeXwiaEtXKAXRAIREEnwTfknEIMtkE+uWHCrrI5TbBPXH+S7SNr7IIIWA+NvNsrajIso6AgHCo3NpZ8RAFHAnS5z9NujCRz47s/hk3Yapbbn8J297yOq5UarZUNo0Sq/yZZyAYnNODaf9GkbPpd5DVBP2mBzvLW3Z8rNVBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMW4NZwC+ox1jZ+uuWgb5XseeeSrtm/pBMnKqArvNWiBo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/leonnikolai
+
+==================================================================

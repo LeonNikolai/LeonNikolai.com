@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    color: #fff;
+    background: #111;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+html {
+
+    scroll-behavior: smooth;
+}
+img {
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+#view {
+    position: fixed;
+    top:0;
+    z-index: -1;
+    pointer-events: none;
+}
+.icon {
+    max-width: 3rem;
+    color: white;
+    filter: invert(0.5) sepia(0) brightness(100%);
+    transition: filter 1s ease;
+    padding: 0.5rem;
+}
+.icon:hover {
+    max-width: 3rem;
+    color: white;
+    filter: invert(0.5) sepia(1) brightness(100%) hue-rotate(160deg) saturate(1500%);
+    padding: 0.2rem;
+}
+header {
+	display: flex;
+	height: 85vh;
+	flex-direction: column;
+	align-items: center;
+	color: #aaa;
+}
+.top-header {
+	display: flex;
+	align-items: center;
+	flex: 0 1 100%;
+	font-size: 1.6rem;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+.external {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-around;
+	text-decoration: none;
+	color: rgb(104, 122, 0);
+	padding: 0.6rem;
+	background: black;
+}
+.external > a{
+	text-decoration: none;
+	color: inherit;
+	font-weight: bold;
+}
+.me {
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1rem;
+    margin: auto;
+    text-align: center;
+}
+
+header {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+p {
+    max-width: 60ch;
+    
+}
+.sitemax {
+    margin: auto;
+    max-width: 1200px;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+
+
+
+
+.showcase {
+    /* padding-top: 5rem; */
+}
+.showcase .item {
+    display: flex;
+    justify-content: space-between
+}
+.showcase .item .preview {
+    flex-grow: 2;
+    max-width: 40%; 
+    display: block;
+    flex-basis: 50%;
+    transition: filter 0.2s ease;
+    filter: brightness(0.187) contrast(106%) blur(15px);
+}
+.showcase .item .preview:hover {
+    filter: none;
+}
+.showcase .item .about {
+    flex-shrink: 1;
+}
+#greeting > img {
+    max-height: 60vh;
+    height: 60%;
+    width: auto;
+}
+.project-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 2fr));
+    justify-content: space-between;
+
+}
+.project {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    position: relative;
+}
+.project:hover img {
+    filter: brightness(1.2);
+}
+.project img {
+    transition: filter 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.timeline {
+    position: absolute;
+    height: 90%;
+    width: min-content;
+    margin: auto;
+    left:0;
+    right:0;
+    z-index:1;
+}
+.timeline span {
+    top: 50%;
+    position: sticky;
+    background: red;
+}
+.project h1,  .project h2, .project h3{
+    margin: 0 0 0.5em 0;
+
+}
+.card3d {
+    pointer-events: none;
+}
+
+.project .label {
+    background: #777;
+    color: #111;
+    padding: 0.2rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+}
