@@ -3,15 +3,70 @@ const rd           = max => Math.random()*max>>0
 const rd_accurate  = max => Math.floor(Math.random()*max)
 const rd_arr       = arr => arr[Math.random() * arr.length>>0]
 const rd_MM        = (min,max) => Math.floor(Math.random() * (max - min + 1) + min);
-
-// const random = (max = 1,min = 0,decimals = 0) => {
-// 	const random = Math.random();
-// 	const output = (random*(max-min)+min)>>0
-// 	return max == 1 & min == 0 ? random > 0.5 : output;
-// }
-// canvas background -->
+const canvas = document.getElementById('view');
+const ctx = canvas.getContext('2d', {lowLatency: true,desynchronized: true, alpha: false});
+let w = ctx.canvas.width  = document.documentElement.clientWidth;
+let h = ctx.canvas.height = document.documentElement.clientHeight;
 let inX,inY,oldX,oldY,linearray=[],mouse=[],color
-const background = document.getElementById('view');
+window.addEventListener("resize", () => {w = ctx.canvas.width  = document.documentElement.clientWidth; h = ctx.canvas.height = document.documentElement.clientHeight; requestAnimationFrame(drawBackground);})
+    
+function drawBackground() {
+    ctx.beginPath(); 
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, w, h);
+    ctx.moveTo(inX,inY);
+    for(i = 0; i < linearray.length; i++) {
+        ctx.quadraticCurveTo(
+            linearray[i][0]*w>>0,
+            linearray[i][1]*h>>0,
+            linearray[i][2]*w>>0,
+            linearray[i][3]*h>>0
+        );
+    }
+    ctx.quadraticCurveTo(mouse[0]*h>>0,mouse[1]*w>>0,inX,inY);
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = color;
+    ctx.stroke();
+    ctx.closePath();
+    for(i = 0; i < star.length; i++) {
+            ctx.fillStyle = `rgb( ${star[i][2]} , ${star[i][3]} , ${star[i][4]} )`;
+            ctx.fillRect(star[i][0]*w>>0, star[i][1]*h>>0, 2, 2);
+    }
+    for(i = 0; i < linearray.length; i++) {
+        ctx.beginPath(); 
+        ctx.fillStyle = `rgb( ${star[i][2]} , ${star[i][3]} , ${star[i][4]} )`;
+        ctx.arc(linearray[i][2]*w>>0, linearray[i][3]*h>>0, 2, 0, 2 * Math.PI, false);
+        ctx.fill();
+        ctx.closePath();
+    }
+    ctx.beginPath(); 
+    ctx.fillStyle = `rgb(255,255,255 )`;
+    ctx.fillRect(inX-1,inY-1, 2, 2);
+    ctx.closePath();
+};
+const newBackground = () => {
+	linearray = []
+	star = []
+	for(i = 0; i < rd_MM(2,14); i++) {
+		linearray.push ([
+			Math.random(),
+			Math.random(),
+			Math.random(),
+			Math.random()
+		])
+	}
+	for(i = 0; i < 50; i++) {
+		star.push ([
+			Math.random(),
+			Math.random(),
+			rd_MM(0,256),
+			rd_MM(0,256),
+			rd_MM(0,256)
+		])
+	}
+	mouse = [Math.random(), Math.random()]
+	color = "#" + Math.floor(2+Math.random()*3).toString(16)+Math.floor(3+Math.random()*3).toString(16)+ Math.floor(3+Math.random()*3).toString(16)
+}
 
 function initState() {
     changeTittle();
@@ -38,75 +93,6 @@ function changeTittle() {
     requestAnimationFrame(drawBackground);
     document.getElementById("greeting").innerHTML = generate();
 }
-
-const newBackground = () => {
-        const w = document.documentElement.clientWidth
-        const h = document.documentElement.clientHeight
-        linearray = []
-        star = []
-        for(i = 0; i < rd_MM(2,14); i++) {
-            linearray.push ([
-                rd_MM(0,w),
-                rd_MM(0,h),
-                rd_MM(0,w),
-                rd_MM(0,h)
-            ])
-        }
-        for(i = 0; i < 50; i++) {
-            star.push ([
-                rd_MM(0,w),
-                rd_MM(0,h),
-                rd_MM(0,256),
-                rd_MM(0,256),
-                rd_MM(0,256)
-            ])
-        }
-        mouse = [Math.floor(Math.random()*(w-0+1)+0), Math.floor(Math.random()*(h-0+1)+0)]
-        color = "#" + Math.floor(2+Math.random()*3).toString(16)+Math.floor(3+Math.random()*3).toString(16)+ Math.floor(3+Math.random()*3).toString(16)
-}
-    
-window.addEventListener("resize", () => document.getElementById('view').setAttribute("style", "width:" + document.body.clientWidth + "; height:" + document.documentElement.clientHeight))
-    
-    
-function drawBackground() {
-    const canvas = document.getElementById('view');
-    const ctx = canvas.getContext('2d',{ alpha: false });
-
-    const w = ctx.canvas.width  = document.documentElement.clientWidth;
-    const h = ctx.canvas.height = document.documentElement.clientHeight;
-    ctx.beginPath(); 
-    ctx.fillStyle = "#111";
-    ctx.fillRect(0, 0, w, h);
-    ctx.moveTo(inX,inY);
-    for(i = 0; i < linearray.length; i++) {
-        ctx.quadraticCurveTo(
-            linearray[i][0],
-            linearray[i][1],
-            linearray[i][2],
-            linearray[i][3]
-        );
-    }
-    ctx.quadraticCurveTo(mouse[0],mouse[1],inX,inY);
-    ctx.lineWidth = 1.5;
-    ctx.strokeStyle = color;
-    ctx.stroke();
-    ctx.closePath();
-    for(i = 0; i < star.length; i++) {
-            ctx.fillStyle = `rgb( ${star[i][2]} , ${star[i][3]} , ${star[i][4]} )`;
-            ctx.fillRect(star[i][0], star[i][1], 2, 2);
-    }
-    for(i = 0; i < linearray.length; i++) {
-        ctx.beginPath(); 
-        ctx.fillStyle = `rgb( ${star[i][2]} , ${star[i][3]} , ${star[i][4]} )`;
-        ctx.arc(linearray[i][2], linearray[i][3], 2, 0, 2 * Math.PI, false);
-        ctx.fill();
-        ctx.closePath();
-    }
-    ctx.beginPath(); 
-    ctx.fillStyle = `rgb(255,255,255 )`;
-    ctx.fillRect(inX-1,inY-1, 2, 2);
-    ctx.closePath();
-};
 
 
 // random text ->
@@ -309,14 +295,6 @@ const generate = x => {
 		"Not all people who wander are lost.",
 		'<img src="./bean.jpg"></img>',
 	]
-	// const preferedLang	= navigator.languages ? navigator.languages[0] : [(navigator.userLanguage || navigator.language || navigator.browserLanguage || navigator.systemLanguage)];
-	// const otherLang		= navigator.languages ? navigator.languages:"";
-
-	// if(otherLang.includes("no") ||  otherLang.includes("nb") || otherLang.includes("nn")) {
-	// 	meme = meme.concat([
-	// 		rd_arr(["hei","heisan",""])
-	// 	])
-	// }
 	x_ = x || rd(meme.length);
     let sentence = [
         meme[x_],
@@ -329,21 +307,3 @@ const generate = x => {
     out = x == x_ ? meme[x] : sentence[rd(sentence.length)]
     return out.charAt(0).toUpperCase() + out.substring(1)
 }
-
-
-// random float [0-1] : Math.random()
-// const random = () => {
-// 	rgb() {return hi}
-// }
-// const randomFloatRange 		= (min,max) => Math.random() * (max - min) + min
-// const randomBoolean    		= (chance = .5) => Math.random() >= chance
-// const random32bitInt   		= max =>  Math.random()*(max+1)>>0
-// const random32bitIntRange 	= (min,max+=1) => Math.random()*(max-min+1)+min>>0
-// const random64bitInt 		= max => Math.floor(Math.random()*(max+1))
-// const random64bitIntRange 	= (min,max) => Math.floor(Math.random()*(max-min+1)+min)
-// const random32bitArray = array => array[
-//     Math.random()*array.length>>0
-// ]
-// const random32bitArray = array => array[
-//     Math.floor(Math.random()*array.length)
-// ]
