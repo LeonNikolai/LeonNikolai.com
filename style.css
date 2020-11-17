@@ -5,6 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    overflow: hidden auto;
 }
 html {
 
@@ -20,7 +21,7 @@ img {
 #view {
     position: fixed;
     top:0;
-    z-index: -1;
+    z-index: -2;
     pointer-events: none;
 }
 .icon {
@@ -38,7 +39,7 @@ img {
 }
 header {
 	display: flex;
-	height: 85vh;
+	height: 65vh;
 	flex-direction: column;
 	align-items: center;
 	color: #aaa;
@@ -87,17 +88,11 @@ p {
 .sitemax {
     margin: auto;
     max-width: 1200px;
-    padding: 1rem;
-    overflow: hidden;
+    padding: 5rem 1rem 1rem 1rem;
+    width: 100%;
 }
 
 
-
-
-
-.showcase {
-    /* padding-top: 5rem; */
-}
 .showcase .item {
     display: flex;
     justify-content: space-between
@@ -127,42 +122,71 @@ p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 2fr));
     justify-content: space-between;
-
-}
-.project {
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 0.4rem;
-    position: relative;
-}
-.project:hover img {
-    filter: brightness(1.2);
-}
-.project img {
-    transition: filter 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.timeline {
-    position: absolute;
-    height: 90%;
-    width: min-content;
-    margin: auto;
-    left:0;
-    right:0;
-    z-index:1;
-}
-.timeline span {
-    top: 50%;
-    position: sticky;
-    background: red;
+    gap:1em;
+    padding-bottom: 2em;
 }
 .project h1,  .project h2, .project h3{
     margin: 0 0 0.5em 0;
+    color: white;
+}
+.project:hover {
+    z-index: 5;
 
 }
 .card3d {
+    transform: scale(1);
+    background: transparent;
+    perspective: 600px;
+    transition: transform 100ms ease-out;
+    width: 100%;
+    
+}
+
+.card3d:hover {
+    transform: scale(1.2);
+}
+
+.card3d h3{
+    opacity: 0;
+    position: absolute;
+    display: block;
+    top:3em;
+    font-size: 1.25em;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: top .1s ease-out,opacity 0.2s ease;
     pointer-events: none;
+
+}
+.card3d h3 > span {
+    display: inline-block;
+    background:rgb(255, 0, 85);
+    color: white;
+    
+    padding:.2em .5em;
+    border-radius: .2em;
+    box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.2);
+    will-change: transform;
+}
+.card3d:hover h3{
+    opacity: 1;
+    top:3em;
+}
+.card3d:hover img{
+    transition: none;
+    border: 1px white solid;
+    opacity: 1;
+}
+.card3d img{
+    opacity: .8;
+    pointer-events: none;
+    transition: all 250ms ease-out;
+    border-radius: .5em;
+    will-change: transform, box-shadow,filter;
 }
 
 .project .label {
@@ -171,4 +195,18 @@ p {
     padding: 0.2rem;
     border-radius: 0.25rem;
     font-size: 0.8rem;
+}
+ 
+
+@media (max-width:700px) {
+    .card3d:hover {
+        transform: none;
+    }
+    .card3d h3{
+        opacity: 1;
+    }
+    .card3d img{
+        opacity: 1;
+    }
+
 }

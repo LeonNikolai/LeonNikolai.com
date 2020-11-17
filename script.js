@@ -307,3 +307,44 @@ const generate = x => {
     out = x == x_ ? meme[x] : sentence[rd(sentence.length)]
     return out.charAt(0).toUpperCase() + out.substring(1)
 }
+
+
+
+
+const map = (val, minA, maxA, minB, maxB) => minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
+function Card3D(card, ev) {
+	let img = ev.currentTarget.querySelector('img');
+	let imgRect = ev.currentTarget.getBoundingClientRect();
+	let width = imgRect.width;
+	let height = imgRect.height;
+	let mouseX = ev.offsetX;
+	let mouseY = ev.offsetY;
+	let rotateY = map(mouseX, 0, height, -25, 25);
+	let rotateX = map(mouseY, 0, height, 25, -25);
+	let rotateY_ = map(mouseX/3, 0, height/3, -25, 25);
+	let rotateX_ = map(mouseY/3, 0, height/3, 25, -25);
+	let brightness = map(mouseY, 0, 250, 1.5, 0.5);
+	let span = ev.currentTarget.querySelector('span');
+
+	span.style.transform = `translate(${(height/2-mouseX)/10*-1}px,${(width/2-mouseY)/10*-1}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+	img.style.boxShadow = `${(height/2-mouseX)/5}px ${(width/2-mouseY)/5}px ${20-mouseY/height*10}px rgb(0,0,0,${.6-mouseY/height*.6})`;
+	img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+	img.style.filter = `brightness(${Math.max(brightness,.1)})`;
+}
+
+var cards = document.querySelectorAll('.card3d');
+
+cards.forEach((card) => {
+	card.addEventListener('mousemove', (ev) => {
+		Card3D(card, ev);
+	});
+
+	card.addEventListener('mouseleave', (ev) => {
+		let span = ev.currentTarget.querySelector('span');
+		let img = ev.currentTarget.querySelector('img');
+		span.style.transform = 'none';
+		img.style.transform = 'rotateX(0deg) rotateY(0deg)';
+		img.style.filter = 'brightness(1)';
+		img.style.boxShadow = `none`;
+	});
+});
