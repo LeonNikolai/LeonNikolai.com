@@ -1,6 +1,7 @@
 'use strict';
 import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.136.0-4Px7Kx1INqCFBN0tXUQc/mode=imports/optimized/three.js';
 import { GLTFLoader } from ' https://cdn.skypack.dev/pin/three@v0.136.0-4Px7Kx1INqCFBN0tXUQc/mode=imports/unoptimized/examples/jsm/loaders/GLTFLoader.js';
+scroller: document.body;
 const startProgress = document.getElementById("initProgress");
 startProgress.value = 10;
 
@@ -179,7 +180,7 @@ function start3d() {
         window.addEventListener("deviceorientation", e => {
             doAnimate=true;
             mousex = -e.gamma/90;
-            mousey = -(e.beta-90)/180;
+            mousey = -(e.beta)/180;
             console.log(mousex + ", " + mousey);
         }, true);
     } else {
