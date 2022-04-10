@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
+    // content:url("images/splash.webp");   // preload images
+ }
+* {
+    box-sizing: border-box;
+}
+
+canvas { 
+    max-width: 100%; 
+    max-height: 100%;
+    z-index: -1;
+    top:0;
+    position: fixed;
+}
+
+.leonCanvas {
+    background: 
+    center / cover no-repeat url("images/splash.webp") ,
+    linear-gradient(#fff 4px, transparent 0),
+    linear-gradient(45deg, transparent 74px, transparent 75px, #00ffff 75px, #00ffff 76px, transparent 77px, transparent 109px),
+    linear-gradient(-45deg, transparent 75px, transparent 76px, #00ffff 76px, #00ffff 77px, transparent 78px, transparent 109px),
+  #fff;
+    background-size: cover, 100% 6px, 109px 109px, 109px 109px;
+    background-position:  bottom;
+    opacity: 1;
+    animation: fadeIn linear 4s,bg-grid-scroll linear 1s infinite;
+}
+@keyframes fadeIn {
+    0%      {
+        opacity:0;
+        transform: scale(1.1);
+    }
+    10%      {
+        opacity:0;
+    }
+    30%    {
+        filter: grayscale(1);
+      
+    }
+    100%    {
+        opacity:1;
+    }
+  }
+@keyframes bg-grid-scroll {
+    from {
+        background-position: bottom,0 0;
+    }
+    to { 
+        background-position: bottom, 108px 108px;
+    }
+ }
+#basicSite {
+    padding: .5em;
+    min-height: 100vh;
+    width: 100%;
+    // overflow: hidden;
+    font:initial;
+}
+#content {
+    // height: 200vh;
+    min-height: 100vh;
+    width: 100%;
+
+    section {
+        max-width: 70em;
+        min-height: 100vh;
+        margin: auto;
+        display: flex;
+        h2 {
+            text-align: center;
+            padding: 0 1em;
+            font-weight: bold;
+            margin: auto;
+            color: white;
+            // filter: blur(1.5px);
+            font-size: 2em;
+            font-weight: 900;
+            flex: 10;
+        }
+    }
+}
+
+.section {
+    margin: auto;
+    .header {
+        min-height: 50vh;
+        display: flex;
+        justify-content: flex-end;
+    }
+    p {
+        max-width: 40ch;
+    }
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}

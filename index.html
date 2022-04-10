@@ -1,81 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leon Nikolai Engelsvold</title>
-    <meta name=description content="Graphic designer, web designer and hobby photographer.">
-    <meta name=author content="Leon Nikolai Engelsvold">
-
-      <!--Open Graph protocol https://ogp.me/#types-->
-    <meta property=og:type content=website>
-    <meta property=og:title content="Leon Nikolai Engelsvold">
-    <meta property=og:url content="http://leonnikolai.com">
-    <meta property=og:image content="/ol-image.png">
-
-    <!--Twitter Card https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started-->
-    <meta name=twitter:card content="summary_large_image">
-    <meta name=twitter:image content="/twitter-image.png">
-    <meta name=twitter:creator content=@TheLeonNikolai>
-    <meta name=twitter:title content="Somewhere on the Internet">
-    <meta name=twitter:description content="Leon Nikolai Engelsvold">
-
+    <title>Leon's Html Website</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="prefetch" as="image" href="/images/splash.webp">
+    <link rel="prefetch" as="model/gltf-binary" href="/models/Spill/OleGameOpen.glb">
+    <link rel="prefetch" as="model/gltf-binary" href="/models/DonutTutoeial.glb">
+    <link rel="prefetch" as="model/gltf-binary" href="/models/RentToy/RentToy.glb">
+    <link rel="prefetch" as="model/gltf-binary" href="/models/leon2SmootherShapet2.glb">
 </head>
-
 <body>
-    <header>
-		<div class=external>
-			<a href=http://minecraft.leonnikolai.com>Minecraft Datapacks</a>
-		</div>
-		<div class="top-header">
-			<span id="greeting">Hello.</span>
-		</div>
-		<a class=me>I'm Leon Nikolai</a>
-		<div>
-			<a href="https://github.com/leonnikolai"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" class="icon"></a>
-			<a href="https://instagram.com/leonnikolai"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/instagram.svg" class="icon"></a>
-			<a href="https://twitter.com/TheLeonNikolai"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" class="icon"></a>
-			<a href="https://reddit.com/u/LeonNikolai"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/reddit.svg" class="icon"></a>
-			<a href="https://www.linkedin.com/in/leonnikolai/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" class="icon"></a>
-			<a href="https://steamcommunity.com/id/TheLeonNikolai"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/steam.svg" class="icon"></a>
-		</div>
-    </header>
-    <main id="projects">
-        <section class="sitemax showcase">
-            <div class="project-list">
-                <a href="http://leonnikolai.github.io/color" class="project">
-                    <div class="card3d">
-                        <h3><span>Color Toolbox</span></h3>
-                        <img src="./img/rgbcode.png" alt="" srcset="">
-                    </div>
-                </a>
-
-                <a href="http://leonnikolai.github.io/datapacks" class="project">
-                    <div class="card3d">
-                        <h3><span>minecraft.leonnikolai.com</span></h3>
-                        <img src="./img/minecraft.png" alt="" srcset="">
-                    </div>
-				</a>
-                <a href="https://www.behance.net/gallery/85137977/RentToey-Redesign" class="project">
-                    <div class="card3d">
-                        <h3><span>Strategic Design Exam</span></h3>
-                        <img src="./img/rentoy.jpg" alt="" srcset="">
-                    </div>
-                </a>
-                <a href="https://instagram.com/leonnikolai" class="project">
-                    <div class="card3d">
-                        <h3><span>Photography</span></h3>
-                        <img src="./img/instagram.png" alt="" srcset="">
-                    </div>
-                </a>
-            </div>
+    <div id="basicSite">
+        <h1>Leon's Html Website</h1>
+        <p>Welcome to my amazing website.<br>I spent a lot of time coding it using text.</p> 
+        <h2>Reasons why its awsome</h2>
+        <ol>
+            <li>Its on the world wide web</li>
+            <li>It's minimalistic</li>
+            <li>It's Responsive</li>
+            <li>It has a design</li>
+            <li>It uses a Algorithm</li>
+            <li>It has a Frontend</li>
+            <li>GMO Free</li>
+            <li>Mobile-Last</li>
+            <li>Artificially longer loading bar.</li>
+            <li>My mom likes it.</li>
+            <li>I made it.</li>
+            <li>Im grown up, hopfully.</li>
+        </ol>
+        <progress id="initProgress" value="0" max="100"></progress><br>
+        <button id="initButton" disabled>Button Test</button>
+    </div>
+    <div id="content" class="hidden">
+        <section class="section3d header" data-model="0">
+            <h2>Hi, im Leon, <br>or a developer,<br> or a designer, <br>or something.</h2>
         </section>
-    </main>
-    <canvas id="view"></canvas>
-    <script src="script.js" async></script>
-</body>
+        <section class="section3d" data-model="1">
+            <h2>WORK IN PROGRESS WEbSITE!!!</h2>
+        </section>
+        <section class="section3d" data-model="2">
+            <h2>Game Development</h2><br>
+        </section>
+        <section class="section3d" data-model="3">
+            <h2>Photography</h2>
+        </section>
+    </div>
 
+    <script src="script.js" type="module"></script>
+</body>
 </html>
