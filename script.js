@@ -4,15 +4,8 @@ import { GLTFLoader } from ' https://cdn.skypack.dev/pin/three@v0.136.0-4Px7Kx1I
 scroller: document.body;
 const startProgress = document.getElementById("initProgress");
 startProgress.value = 10;
-
-const startButton = document.getElementById("initButton");
-startButton.addEventListener("click", e => {
-    document.getElementById("basicSite").remove();
-    start3d();
-})
-
-
-let doAnimate = true;
+let width = window.innerWidth;
+let height = window.innerHeight;
 
 var isMobile = {
     Android:    () => navigator.userAgent.match(/Android/i),
@@ -22,6 +15,52 @@ var isMobile = {
     Windows:    () => navigator.userAgent.match(/IEMobile/i),
     any:        () => (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows())
 };
+const startButton = document.getElementById("initButton");
+startButton.addEventListener("click", e => {
+    document.getElementById("basicSite").remove();
+    start3d();
+
+    if(isMobile.iOS()) {
+        if ( typeof( DeviceOrientationEvent ) !== "undefined" && typeof( DeviceOrientationEvent.requestPermission ) === "function" ) {
+            DeviceOrientationEvent.requestPermission()
+                .then( response => {
+                if ( response == "granted" ) {
+                    window.addEventListener("deviceorientation", e => {
+                        doAnimate=true;
+                        mousex = -e.gamma/90;
+                        mousey = -(e.beta)/180;
+                        console.log(mousex + ", " + mousey);
+                    }, true);
+                }
+            })
+                .catch( console.error )
+        } else {
+            alert( "DeviceMotionEvent is not defined" );
+        }
+    } else {
+        if(isMobile.any()) {
+            window.addEventListener("deviceorientation", e => {
+                doAnimate=true;
+                mousex = -e.gamma/90;
+                mousey = -(e.beta)/180;
+                console.log(mousex + ", " + mousey);
+            }, true);
+        } else {
+            window.addEventListener('mousemove', e => {
+                doAnimate=true;
+                mousex = (e.clientX / width * 2 - 1);
+                mousey = (e.clientY / height * 2 - 1);
+                console.log(mousex + ", " + mousey);
+    
+            });
+        }
+    }
+})
+
+
+let doAnimate = true;
+
+
 
 window.onload = () => {
     startProgress.value += 10;
@@ -171,27 +210,9 @@ function start3d() {
     const content = document.getElementById("content");
     content.classList.remove("hidden");
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+
     let mousex = 0;
     let mousey = 0;
-
-    if(isMobile.any()) {
-        window.addEventListener("deviceorientation", e => {
-            doAnimate=true;
-            mousex = -e.gamma/90;
-            mousey = -(e.beta)/180;
-            console.log(mousex + ", " + mousey);
-        }, true);
-    } else {
-        window.addEventListener('mousemove', e => {
-            doAnimate=true;
-            mousex = (e.clientX / width * 2 - 1);
-            mousey = (e.clientY / height * 2 - 1);
-            console.log(mousex + ", " + mousey);
-
-        });
-    }
 
 
 
