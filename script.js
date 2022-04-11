@@ -6,7 +6,8 @@ const startProgress = document.getElementById("initProgress");
 startProgress.value = 10;
 let width = window.innerWidth;
 let height = window.innerHeight;
-
+let mousex = 0;
+let mousey = 0;
 var isMobile = {
     Android:    () => navigator.userAgent.match(/Android/i),
     BlackBerry: () => navigator.userAgent.match(/BlackBerry/i),
@@ -211,8 +212,7 @@ function start3d() {
     content.classList.remove("hidden");
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-    let mousex = 0;
-    let mousey = 0;
+
 
 
 
