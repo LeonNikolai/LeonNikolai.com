@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, target-densityDpi=device-dpi, minimal-ui' />
     <title>Leon's Html Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,40 +17,42 @@
     <link rel="prefetch" as="model/gltf-binary" href="/models/leon2SmootherShapet2.glb">
 </head>
 <body>
-    <div id="basicSite">
-        <h1>Leon's Html Website</h1>
-        <p>Welcome to my amazing website.<br>I spent a lot of time coding it using text.</p> 
-        <h2>Reasons why its awsome</h2>
-        <ol>
-            <li>Its on the world wide web</li>
-            <li>It's minimalistic</li>
-            <li>It's Responsive</li>
-            <li>It has a design</li>
-            <li>It uses a Algorithm</li>
-            <li>It has a Frontend</li>
-            <li>GMO Free</li>
-            <li>Mobile-Last</li>
-            <li>Artificially longer loading bar.</li>
-            <li>My mom likes it.</li>
-            <li>I made it.</li>
-            <li>Im grown up, hopfully.</li>
-        </ol>
-        <progress id="initProgress" value="0" max="100"></progress><br>
-        <button id="initButton" disabled>Button Test</button>
-    </div>
-    <div id="content" class="hidden">
-        <section class="section3d header" data-model="0">
-            <h2>Hi, im Leon, <br>or a developer,<br> or a designer, <br>or something.</h2>
-        </section>
-        <section class="section3d" data-model="1">
-            <h2>WORK IN PROGRESS WEbSITE!!!</h2>
-        </section>
-        <section class="section3d" data-model="2">
-            <h2>Game Development</h2><br>
-        </section>
-        <section class="section3d" data-model="3">
-            <h2>Photography</h2>
-        </section>
+    <div class="wrapper">
+        <div id="basicSite">
+            <h1>Leon's Html Website</h1>
+            <p>Welcome to my amazing website.<br>I spent a lot of time coding it using text.</p> 
+            <h2>Reasons why its awsome</h2>
+            <ol>
+                <li>Its on the world wide web</li>
+                <li>It's minimalistic</li>
+                <li>It's Responsive</li>
+                <li>It has a design</li>
+                <li>It uses a Algorithm</li>
+                <li>It has a Frontend</li>
+                <li>GMO Free</li>
+                <li>Mobile-Last</li>
+                <li>Artificially longer loading bar.</li>
+                <li>My mom likes it.</li>
+                <li>I made it.</li>
+                <li>Im grown up, hopfully.</li>
+            </ol>
+            <progress id="initProgress" value="0" max="100"></progress><br>
+            <button id="initButton" disabled>Button Test</button>
+        </div>
+        <div id="content" class="hidden">
+            <section class="section3d header" data-model="0">
+                <h2>Hi, im Leon, <br>or a developer,<br> or a designer, <br>or something.</h2>
+            </section>
+            <section class="section3d" data-model="1">
+                <h2>WORK IN PROGRESS WEbSITE!!!</h2>
+            </section>
+            <section class="section3d" data-model="2">
+                <h2>Game Development</h2><br>
+            </section>
+            <section class="section3d" data-model="3">
+                <h2>Programming</h2>
+            </section>
+        </div>
     </div>
 
     <script src="script.js" type="module"></script>

@@ -30,7 +30,7 @@ startButton.addEventListener("click", e => {
                         doAnimate=true;
                         mousex = -e.gamma/90;
                         mousey = -(e.beta)/180;
-                        console.log(mousex + ", " + mousey);
+                    
                     }, true);
                 }
             })
@@ -44,15 +44,13 @@ startButton.addEventListener("click", e => {
                 doAnimate=true;
                 mousex = -e.gamma/90;
                 mousey = -(e.beta)/180;
-                console.log(mousex + ", " + mousey);
+            
             }, true);
         } else {
             window.addEventListener('mousemove', e => {
                 doAnimate=true;
                 mousex = (e.clientX / width * 2 - 1);
                 mousey = (e.clientY / height * 2 - 1);
-                console.log(mousex + ", " + mousey);
-    
             });
         }
     }
@@ -91,7 +89,7 @@ loader.load( 'models/leon2SmootherShapet2.glb', function ( gltf ) {
     startProgress.value += progressPoint;
     let modelScene = gltf.scene;
     modelScene.scale.set(1,1,1);
-    modelScene.position.set(0,0,0);
+    modelScene.position.set(0,-1,0);
     gltf.scene.children[0].material = new THREE.MeshNormalMaterial();
     scene.add(modelScene);
     models.push(gltf.scene.children[0])
@@ -99,30 +97,30 @@ loader.load( 'models/leon2SmootherShapet2.glb', function ( gltf ) {
     loader.load( 'models/RentToy/RentToy.glb', function ( gltf2 ) {
         startProgress.value += progressPoint;
         let modelScene2 = gltf2.scene;
-        modelScene2.scale.set(1.5,1.5,1.5);
-        modelScene2.position.set(0,.2,0);
+        modelScene2.scale.set(1,1,1);
+        modelScene2.position.set(0,.2-1,0);
         modelScene2.rotation.set(0,1.5708,0);
         scene.add(modelScene2);
-        gltf2.scene.children[0].position.y = -2;
+    
         models.push(gltf2.scene.children[0])
-        loader.load( 'models/DonutTutoeial.glb', function ( gltf2 ) {
+        loader.load( 'models/Spill/OleGameOpen.glb', function ( gltf2 ) {
             startProgress.value += progressPoint;
             let modelScene2 = gltf2.scene;
-            modelScene2.scale.set(1.5,1.5,1.5);
-            modelScene2.position.set(0,.2,0);
-            modelScene2.rotation.set(.4,0,.1);
+            modelScene2.scale.set(1,1,1);
+            modelScene2.position.set(0,.2-1,0);
+            modelScene2.rotation.set(0,1.5708,0);
             scene.add(modelScene2);
-            gltf2.scene.children[0].position.y = -2;
+            gltf2.scene.children[0].scale.set(0.1,0.1,0.1)
             models.push(gltf2.scene.children[0])
             loader.load( 'models/Spill/OleGameOpen.glb', function ( gltf2 ) {
                 startProgress.value += progressPoint;
                 let modelScene2 = gltf2.scene;
                 modelScene2.scale.set(1,1,1);
-                modelScene2.position.set(0,0.15,0);
+                modelScene2.position.set(0,0.15-1,-0.1);
                 modelScene2.rotation.set(0,3.8,0);
         
                 scene.add(modelScene2);
-                gltf2.scene.children[0].position.y = -2;
+            
                 gltf2.scene.children[0].scale.set(0.1,0.1,0.1)
                 models.push(gltf2.scene.children[0])
             }, undefined, undefined);
@@ -156,11 +154,18 @@ const observer =  new IntersectionObserver((event) => {
     for (let i = 0; i < event.length; i++) {
         const e = event[i];
         const ratio = e.intersectionRatio;
-        const thisModel = models[e.target.dataset.model];
-        if(ratio <= 0) thisModel.visible = false;
+        const modelID = e.target.dataset.model;
+        const thisModel = models[modelID];
+        if(!e.isIntersecting || ratio <= 0) {
+            thisModel.visible = false;
+            continue;
+        }
         else {
+            console.log(ratio);
             thisModel.visible = true;
-            thisModel.position.y = ratio * 1.5 - 1.5;
+            if(e.boundingClientRect.top < 0 && modelID != 0) thisModel.position.y = 1+ 1-ratio;
+            else thisModel.position.y = ratio;
+            
             if(ratio >= max || ratio == 1) {
                 model = thisModel;
                 if(i-1 >= 0) oldModel  = models[event[i-1].target.dataset.model]; else oldModel = model;
@@ -185,20 +190,24 @@ function start3d() {
     });
     
     let activeModelFunction = morphTargetLook;
-    function morphTargetLook(modeld) {
+    function morphTargetLook(thismodel) {
         
-        switch (model.modelID) {
-            case 2:return;
-            case 3:return;
-            case 4:return;
-            case 1:return;
+        switch (thismodel) {
+            case models[3]: 
+            case models[1]: 
+                thismodel.rotation.y += Math.sign(mousex) * 0.005 + 0.02 * mousex;
+                doAnimate = true;
+            break;
+            
             case 0:
             default:
-                if(!modeld.morphTargetInfluences) break;
-                modeld.morphTargetInfluences[0] =  mousex;
-                modeld.morphTargetInfluences[1] = -mousex;
-                modeld.morphTargetInfluences[2] = -mousey;
-                modeld.morphTargetInfluences[3] =  mousey;
+                thismodel.rotation.y = 1.4 + mousex * 0.1;
+                thismodel.position.z = mousey * 0.02;
+                if(!thismodel.morphTargetInfluences) break;
+                thismodel.morphTargetInfluences[0] =  mousex;
+                thismodel.morphTargetInfluences[1] = -mousex;
+                thismodel.morphTargetInfluences[2] = -mousey;
+                thismodel.morphTargetInfluences[3] =  mousey;
                 break;
         }
 
@@ -233,28 +242,21 @@ function start3d() {
         if(model != undefined) {
             const pos = model.rotation;
             activeModelFunction(model)
-            model.rotation.y = 1.4 + mousex * 0.1;
-            model.position.z = mousey * 0.02;
+    
         }
         if(nextModel != undefined) {
             activeModelFunction(nextModel)
-            nextModel.rotation.y = 1.4 + mousex * 0.1;
-            nextModel.position.z = mousey * 0.02;
+    
             
         }
         if(oldModel != undefined) {
             activeModelFunction(oldModel)
-            oldModel.rotation.y = 1.4 + mousex * 0.1;
-            oldModel.position.z = mousey * 0.02;
+
         }
 
 
         renderer.render( scene, camera );
     };
-
-    const animateMobile = () => {
-        console.log(isMobile.any())
-    }
     const animate = isMobile.any() ? animateDesktop : animateDesktop;
 
     animate();
