@@ -3,6 +3,7 @@ import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.136.0-4Px7Kx1INqCFB
 import { GLTFLoader } from ' https://cdn.skypack.dev/pin/three@v0.136.0-4Px7Kx1INqCFBN0tXUQc/mode=imports/unoptimized/examples/jsm/loaders/GLTFLoader.js';
 scroller: document.body;
 const startProgress = document.getElementById("initProgress");
+const wrapper = document.getElementById("wrapper");
 startProgress.value = 10;
 let width = window.innerWidth;
 let height = window.innerHeight;
@@ -146,6 +147,7 @@ function buildThresholdList() {
 
 const sections = document.querySelectorAll(".section3d");
 let model;
+let currentID = 0;
 let nextModel;
 let oldModel ;
 const observer =  new IntersectionObserver((event) => {
@@ -161,12 +163,15 @@ const observer =  new IntersectionObserver((event) => {
             continue;
         }
         else {
-            console.log(ratio);
+            // console.log(ratio);
             thisModel.visible = true;
-            if(e.boundingClientRect.top < 0 && modelID != 0) thisModel.position.y = 1+ 1-ratio;
+            if(e.boundingClientRect.top < ratio-1 && modelID != 0) thisModel.position.y = 1 + 1-ratio;
             else thisModel.position.y = ratio;
             
-            if(ratio >= max || ratio == 1) {
+            if(ratio >= max) {
+                max = ratio;
+                currentID = modelID;
+                window.requestAnimationFrame( swapBK);;
                 model = thisModel;
                 if(i-1 >= 0) oldModel  = models[event[i-1].target.dataset.model]; else oldModel = model;
             }
@@ -176,8 +181,28 @@ const observer =  new IntersectionObserver((event) => {
     threshold: buildThresholdList(),
     rootMargin: "0% 0px 0% 0px"
 })
-
-
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+function swapBK(modelID = -1) {
+    if(modelID = -1) modelID = currentID;
+    let type =  "";
+    switch (modelID) {
+        case "0": type = "bk-animated"; break;
+        default:
+        case "1": type = "bk-solid";    break;
+    }
+    let _color;
+    switch (modelID) {
+        default:
+        case "1": _color = "red"; break;
+        case "2": _color = "yellow"; break;
+        case "3": _color = "lime"; break;
+        case "0": _color = "cyan"; break;
+    }
+    renderer.domElement.style.setProperty("--color", _color);
+    if(renderer.domElement.classList[0] == type) return;
+    renderer.domElement.classList.remove("bk-animated","bk-solid");
+    renderer.domElement.classList.add(type);
+}
 
 
 
@@ -213,10 +238,9 @@ function start3d() {
 
     }
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.gammaOutput = true;
     document.body.appendChild( renderer.domElement );
-    renderer.domElement.classList.add("leonCanvas");
+    renderer.domElement.classList.add("bk-animated");
     const content = document.getElementById("content");
     content.classList.remove("hidden");
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );

@@ -11,7 +11,7 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
-.wrapper {
+#wrapper {
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -29,8 +29,13 @@ canvas {
   position: fixed;
 }
 
-.leonCanvas {
-  background: center/cover no-repeat url("images/splash.webp"), linear-gradient(#fff 4px, transparent 0), linear-gradient(45deg, transparent 74px, transparent 75px, #00ffff 75px, #00ffff 76px, transparent 77px, transparent 109px), linear-gradient(-45deg, transparent 75px, transparent 76px, #00ffff 76px, #00ffff 77px, transparent 78px, transparent 109px), #fff;
+.bk-solid {
+  --color: red;
+  background: linear-gradient(var(--color), var(--color));
+  transition: --color 1s linear;
+}
+.bk-animated {
+  background: center/cover no-repeat url("images/splash.webp"), linear-gradient(#fff, 4px, transparent 0), linear-gradient(45deg, transparent 74px, transparent 75px, #00ffff 75px, #00ffff 76px, transparent 77px, transparent 109px), linear-gradient(-45deg, transparent 75px, transparent 76px, #00ffff 76px, #00ffff 77px, transparent 78px, transparent 109px), #fff;
   background-size: cover, 100% 6px, 109px 109px, 109px 109px;
   background-position: bottom;
   opacity: 1;
@@ -62,13 +67,13 @@ canvas {
 }
 #basicSite {
   padding: 0.5em;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
   font: initial;
 }
 
 #content {
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
 }
 #content section {
@@ -89,7 +94,6 @@ canvas {
 }
 
 .header {
-  height: 0vh;
   display: flex;
   justify-content: flex-end;
 }

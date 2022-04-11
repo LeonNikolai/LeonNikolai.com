@@ -7,11 +7,12 @@ html,body {
 
   
 body {
+    // --bk: #fff;
     -webkit-overflow-scrolling: touch;
     margin: 0;
     font-family: 'Nunito', sans-serif;
 }
-.wrapper {
+#wrapper {
     height: 100%;
     width: 100%;
     overflow: auto;
@@ -28,17 +29,26 @@ canvas {
     position: fixed;
 }
 
-.leonCanvas {
-    background: 
-    center / cover no-repeat url("images/splash.webp") ,
-    linear-gradient(#fff 4px, transparent 0),
-    linear-gradient(45deg, transparent 74px, transparent 75px, #00ffff 75px, #00ffff 76px, transparent 77px, transparent 109px),
-    linear-gradient(-45deg, transparent 75px, transparent 76px, #00ffff 76px, #00ffff 77px, transparent 78px, transparent 109px),
-  #fff;
-    background-size: cover, 100% 6px, 109px 109px, 109px 109px;
-    background-position:  bottom;
-    opacity: 1;
-    animation: fadeIn linear 4s,bg-grid-scroll linear 1s infinite;
+.bk {
+    &-solid {
+        --color: red;
+        background: linear-gradient(var(--color),var(--color));
+        transition: --color 1s linear;
+
+    }
+    &-animated {
+
+        background: center / cover no-repeat url("images/splash.webp") ,
+        linear-gradient(#fff, 4px, transparent 0),
+        linear-gradient(45deg , transparent 74px, transparent 75px, #00ffff 75px, #00ffff 76px, transparent 77px, transparent 109px),
+        linear-gradient(-45deg, transparent 75px, transparent 76px, #00ffff 76px, #00ffff 77px, transparent 78px, transparent 109px),
+        #fff;
+
+        background-size: cover, 100% 6px, 109px 109px, 109px 109px;
+        background-position:  bottom;
+        opacity: 1;
+        animation: fadeIn linear 4s,bg-grid-scroll linear 1s infinite;
+    }
 }
 @keyframes fadeIn {
     0%      {
@@ -66,14 +76,14 @@ canvas {
  }
 #basicSite {
     padding: .5em;
-    min-height: 100vh;
+    min-height: 100%;
     width: 100%;
     // overflow: hidden;
     font:initial;
 }
 #content {
     // height: 200vh;
-    min-height: 100vh;
+    min-height: 100%;
     width: 100%;
 
     section {
@@ -92,12 +102,12 @@ canvas {
             font-weight: 900;
             flex: 10;
         }
-    }
+    } 
 }
 
 
     .header {
-        height: 0vh;
+        
         display: flex;
         justify-content: flex-end;
     }
