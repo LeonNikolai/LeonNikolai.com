@@ -20,7 +20,10 @@ body {
 * {
     box-sizing: border-box;
 }
-
+img{
+    width: 100%;
+    height: auto;
+}
 canvas { 
     max-width: 100%; 
     max-height: 100%;
@@ -86,31 +89,96 @@ canvas {
     min-height: 100%;
     width: 100%;
 
+    p {
+        max-width: 60ch;
+        
+    }
+    article {
+        padding: 1em;
+        background: rgba(255, 255, 255, 0.437);
+        border-radius: .5em;
+        margin: 1em;
+    }
     section {
         max-width: 70em;
         min-height: 100vh;
         margin: auto;
-        display: flex;
         h2 {
             text-align: center;
-            padding: 0 1em;
+            padding: 0 .25em;
+            border-radius: 0.25em;
             font-weight: bold;
             margin: auto;
+            width: auto;
             color: white;
+
             // filter: blur(1.5px);
             font-size: 2em;
             font-weight: 900;
-            flex: 10;
+
         }
     } 
 }
-
-
-    .header {
-        
-        display: flex;
-        justify-content: flex-end;
+ul.list {
+    font-family: sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    li {        
+        padding: 0.25em;
+        a {
+            align-items: stretch;
+            .time {
+                width: 4ch;
+                color: rgb(233, 143, 143);
+                font-weight: bold;
+            }
+            .middle {
+                color: rgb(255, 213, 213);
+                padding: 0 .5em 0 .5em;
+                height: auto;
+                flex-grow: 1;
+                font-weight: bold;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .type {
+                color: rgb(255, 213, 213);
+                padding: 0 .5em 0 .5em;
+                height: auto;
+                width: 10ch;
+                text-align: right;
+                font-weight: bold;
+            }
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5em;
+            background: rgb(41, 0, 0);
+            text-decoration: none;
+            color: white;
+            border-radius: .25em;
+        }
     }
+}
+
+.sectionHeader {
+    padding: 75vh 0.5em 5em 0.5em;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    h2 {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+.header {
+
+    display: flex;
+    justify-content: flex-end;
+}
 
 .hidden {
     display: none;

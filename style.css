@@ -21,6 +21,11 @@ body {
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 canvas {
   max-width: 100%;
   max-height: 100%;
@@ -76,21 +81,86 @@ canvas {
   min-height: 100%;
   width: 100%;
 }
+#content p {
+  max-width: 60ch;
+}
+#content article {
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.437);
+  border-radius: 0.5em;
+  margin: 1em;
+}
 #content section {
   max-width: 70em;
   min-height: 100vh;
   margin: auto;
-  display: flex;
 }
 #content section h2 {
   text-align: center;
-  padding: 0 1em;
+  padding: 0 0.25em;
+  border-radius: 0.25em;
   font-weight: bold;
   margin: auto;
+  width: auto;
   color: white;
   font-size: 2em;
   font-weight: 900;
-  flex: 10;
+}
+
+ul.list {
+  font-family: sans-serif;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+ul.list li {
+  padding: 0.25em;
+}
+ul.list li a {
+  align-items: stretch;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  background: #290000;
+  text-decoration: none;
+  color: white;
+  border-radius: 0.25em;
+}
+ul.list li a .time {
+  width: 4ch;
+  color: #e98f8f;
+  font-weight: bold;
+}
+ul.list li a .middle {
+  color: #ffd5d5;
+  padding: 0 0.5em 0 0.5em;
+  height: auto;
+  flex-grow: 1;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+ul.list li a .type {
+  color: #ffd5d5;
+  padding: 0 0.5em 0 0.5em;
+  height: auto;
+  width: 10ch;
+  text-align: right;
+  font-weight: bold;
+}
+
+.sectionHeader {
+  padding: 75vh 0.5em 5em 0.5em;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.sectionHeader h2 {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .header {

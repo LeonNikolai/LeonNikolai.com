@@ -30,7 +30,7 @@ startButton.addEventListener("click", e => {
                     window.addEventListener("deviceorientation", e => {
                         doAnimate=true;
                         mousex = -e.gamma/90;
-                        mousey = -(e.beta)/180;
+                        mousey = -(e.alpha)/180;
                     
                     }, true);
                 }
@@ -44,7 +44,7 @@ startButton.addEventListener("click", e => {
             window.addEventListener("deviceorientation", e => {
                 doAnimate=true;
                 mousex = -e.gamma/90;
-                mousey = -(e.beta)/180;
+                mousey = -(e.alpha)/180;
             
             }, true);
         } else {
@@ -134,7 +134,7 @@ loader.load( 'models/leon2SmootherShapet2.glb', function ( gltf ) {
 
 function buildThresholdList() {
     let thresholds = [];
-    let numSteps = 500;
+    let numSteps = 200 + height/2;
   
     for (let i=1.0; i<=numSteps; i++) {
       let ratio = i/numSteps;
@@ -148,35 +148,40 @@ function buildThresholdList() {
 const sections = document.querySelectorAll(".section3d");
 let model;
 let currentID = 0;
+let currentElement = sections[0];
 let nextModel;
 let oldModel ;
 const observer =  new IntersectionObserver((event) => {
     doAnimate = true;
-    let max = 0;
+    let max = height;
     for (let i = 0; i < event.length; i++) {
         const e = event[i];
-        const ratio = e.intersectionRatio;
         const modelID = e.target.dataset.model;
         const thisModel = models[modelID];
-        if(!e.isIntersecting || ratio <= 0) {
+        if(!e.isIntersecting) {
             thisModel.visible = false;
             continue;
         }
-        else {
-            // console.log(ratio);
-            thisModel.visible = true;
-            if(e.boundingClientRect.top < ratio-1 && modelID != 0) thisModel.position.y = 1 + 1-ratio;
-            else thisModel.position.y = ratio;
-            
-            if(ratio >= max) {
-                max = ratio;
-                currentID = modelID;
-                window.requestAnimationFrame( swapBK);;
-                model = thisModel;
-                if(i-1 >= 0) oldModel  = models[event[i-1].target.dataset.model]; else oldModel = model;
-            }
+
+        const ratio = e.intersectionRatio;
+    
+        thisModel.visible = true;
+        const top = e.boundingClientRect.top;
+        const bottom = e.boundingClientRect.bottom;
+        
+        if(top > 0)                thisModel.position.y = 1 - top / height;
+        else if(bottom < height)   thisModel.position.y = 1 + (1 - bottom / height) ;
+        else                       thisModel.position.y = 1 ;
+        if(modelID == 0)           thisModel.position.y = Math.min(bottom / height,1);
+        if(top < max/2 && top >= 0 || top <= 0 && bottom >= height) {
+            max = top;
+            currentElement = e.target;
+            currentID = modelID;
+            model = thisModel;
+            if(i-1 >= 0) oldModel  = models[event[i-1].target.dataset.model]; else oldModel = model;
         }
     } 
+    requestAnimationFrame(swapBK);
 }, {
     threshold: buildThresholdList(),
     rootMargin: "0% 0px 0% 0px"
@@ -193,9 +198,9 @@ function swapBK(modelID = -1) {
     let _color;
     switch (modelID) {
         default:
-        case "1": _color = "red"; break;
+        case "1": _color = "pink"; break;
         case "2": _color = "yellow"; break;
-        case "3": _color = "lime"; break;
+        case "3": _color = "black"; break;
         case "0": _color = "cyan"; break;
     }
     renderer.domElement.style.setProperty("--color", _color);
@@ -220,7 +225,8 @@ function start3d() {
         switch (thismodel) {
             case models[3]: 
             case models[1]: 
-                thismodel.rotation.y += Math.sign(mousex) * 0.005 + 0.02 * mousex;
+                thismodel.rotation.y += mousex * 0.01;
+                thismodel.rotation.y %= 360;
                 doAnimate = true;
             break;
             
@@ -263,20 +269,10 @@ function start3d() {
         requestAnimationFrame( animate );
         if(!doAnimate) return;
         doAnimate = false;
-        if(model != undefined) {
-            const pos = model.rotation;
-            activeModelFunction(model)
-    
-        }
-        if(nextModel != undefined) {
-            activeModelFunction(nextModel)
-    
-            
-        }
-        if(oldModel != undefined) {
-            activeModelFunction(oldModel)
 
-        }
+        if(model != undefined)     activeModelFunction(model);
+        if(nextModel != undefined) activeModelFunction(nextModel);
+        if(oldModel != undefined)  activeModelFunction(oldModel);
 
 
         renderer.render( scene, camera );
