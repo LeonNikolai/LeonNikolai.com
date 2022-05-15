@@ -30,7 +30,7 @@ startButton.addEventListener("click", e => {
                     window.addEventListener("deviceorientation", e => {
                         doAnimate=true;
                         mousex = -e.gamma/90;
-                        mousey = -(e.alpha)/180;
+                        mousey = -(e.beta)/180;
                     
                     }, true);
                 }
@@ -44,7 +44,7 @@ startButton.addEventListener("click", e => {
             window.addEventListener("deviceorientation", e => {
                 doAnimate=true;
                 mousex = -e.gamma/90;
-                mousey = -(e.alpha)/180;
+                mousey = -e.beta/180;
             
             }, true);
         } else {
@@ -83,7 +83,7 @@ window.onload = () => {
 
 const scene = new THREE.Scene();
 const loader = new GLTFLoader();
-
+let mixer;
 let models = [];
 let progressPoint = 50 / 4;
 loader.load( 'models/leon2SmootherShapet2.glb', function ( gltf ) {
@@ -95,14 +95,16 @@ loader.load( 'models/leon2SmootherShapet2.glb', function ( gltf ) {
     scene.add(modelScene);
     models.push(gltf.scene.children[0])
 
-    loader.load( 'models/RentToy/RentToy.glb', function ( gltf2 ) {
+    loader.load( 'models/asdasd.glb', function ( gltf2 ) {
         startProgress.value += progressPoint;
         let modelScene2 = gltf2.scene;
         modelScene2.scale.set(1,1,1);
-        modelScene2.position.set(0,.2-1,0);
+        modelScene2.position.set(0,-1,0);
         modelScene2.rotation.set(0,1.5708,0);
         scene.add(modelScene2);
-    
+        gltf2.scene.children[0].scale.set(0.2,0.2,0.2);
+        mixer = new THREE.AnimationMixer(modelScene2);
+        gltf2.animations.forEach(clip =>  mixer.clipAction(clip).play());
         models.push(gltf2.scene.children[0])
         loader.load( 'models/Spill/OleGameOpen.glb', function ( gltf2 ) {
             startProgress.value += progressPoint;
@@ -173,6 +175,7 @@ const observer =  new IntersectionObserver((event) => {
         else if(bottom < height)   thisModel.position.y = 1 + (1 - bottom / height) ;
         else                       thisModel.position.y = 1 ;
         if(modelID == 0)           thisModel.position.y = Math.min(bottom / height,1);
+       
         if(top < max/2 && top >= 0 || top <= 0 && bottom >= height) {
             max = top;
             currentElement = e.target;
@@ -198,22 +201,35 @@ function swapBK(modelID = -1) {
     let _color;
     switch (modelID) {
         default:
-        case "1": _color = "pink"; break;
-        case "2": _color = "yellow"; break;
-        case "3": _color = "black"; break;
-        case "0": _color = "cyan"; break;
+        case "1": _color = [255,192,203]; break;
+        case "2": _color = [255,255,0]; break;
+        case "3": _color = [0,0,0]; break;
+        case "0": _color = [0,255,255]; break;
     }
-    renderer.domElement.style.setProperty("--color", _color);
+    
+    document.body.style.setProperty("--color", `rgb(${_color})`);
+    let contrast = contrastBlack(_color[0],_color[1],_color[2]);
+    document.body.style.setProperty("--text",  contrast ? "var(--black)" : "var(--white)");
+    document.body.style.setProperty("--textContrast",  contrast ? "var(--white)" : "var(--black)");
     if(renderer.domElement.classList[0] == type) return;
     renderer.domElement.classList.remove("bk-animated","bk-solid");
     renderer.domElement.classList.add(type);
 }
 
 
+function contrastBlack(r,g,b)  {
+    let rgb = [r/255,g/255,b/255];
+    rgb = rgb.map(value => value < 0.03928 ?  value / 12.92 : (Math.pow( (value + 0.55) / 1.055, 2.4)));
+    rgb = 0.2126 * rgb[0] +
+        0.7152 * rgb[1] +
+        0.0722 * rgb[2]
 
+    return rgb > 0.179;
+} 
 let activeModelFunction = null;
 function start3d() {
-    
+    let lastUpdate = Date.now();
+    let dt = lastUpdate;
     sections.forEach(e => {
         models[e.dataset.model].modelID = e.dataset.model;
         observer.observe(e);
@@ -223,17 +239,24 @@ function start3d() {
     function morphTargetLook(thismodel) {
         
         switch (thismodel) {
-            case models[3]: 
             case models[1]: 
-                thismodel.rotation.y += mousex * 0.01;
-                thismodel.rotation.y %= 360;
-                doAnimate = true;
+            thismodel.rotation.y += 0.001 * dt;
+            thismodel.rotation.y %= 360;
+            doAnimate = true;
+            mixer.setTime((mousex+1)*4);
+            break;
+            case models[3]: 
+            case models[2]: 
+            thismodel.rotation.y += 0.0005 * dt;
+            thismodel.rotation.y %= 360;
+            doAnimate = true;
             break;
             
+            case models[1]: 
             case 0:
             default:
-                thismodel.rotation.y = 1.4 + mousex * 0.1;
-                thismodel.position.z = mousey * 0.02;
+                thismodel.rotation.y = 1.4 + mousex * 0.05 ;
+                thismodel.position.z = mousey * 0.01;
                 if(!thismodel.morphTargetInfluences) break;
                 thismodel.morphTargetInfluences[0] =  mousex;
                 thismodel.morphTargetInfluences[1] = -mousex;
@@ -266,6 +289,12 @@ function start3d() {
     // scene.add( light );
 
     const animateDesktop = () => {
+
+
+        
+        const now = Date.now();
+        dt = now - lastUpdate;
+        lastUpdate = now;
         requestAnimationFrame( animate );
         if(!doAnimate) return;
         doAnimate = false;

@@ -1,0 +1,57 @@
+* { margin: 0;
+    padding: 0;
+    font-display: swap;
+    font-family: 'Open Sans';}
+::selection {
+    background: yellowgreen; /* WebKit/Blink Browsers */
+    color: white;}
+main {margin: 1em;}
+#message p {color:white; margin: auto auto auto 2em; padding: 0; font-weight: lighter;}
+#message  {height: 6em; max-height: 20vh; min-height: 6em; background: lightslategrey; margin-bottom: 1em;}
+li, ul, section {
+    display: flex;
+}
+
+.section {grid-column: 1 / -1; }
+h1 {font-weight:700 ; margin: 0.5em auto -0.25em 0; color:slategrey;}
+.links {
+    list-style: none;
+    display: grid;
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+    grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
+    grid-gap: 1em;
+}
+.links a:link,.links a:visited,.links a {
+    text-decoration: none;
+    background: black;
+    max-height: 1.5em;
+    height: 5vmin;
+    min-height: 1.2em;
+    width: 100%;
+    max-width: 9em;
+    margin: auto;
+    border-radius: 0.5em;
+    padding: 1em;
+    display: flex;
+    color:white;
+    opacity: 1;
+}
+.links a:hover,.links a:active {opacity: 0.5;}
+@media only screen and (max-width: 1000px) {
+    .links a:link,
+    .links a:visited,
+    .links a {
+        width: 100%;
+        max-width: 100%;}
+        h1 {font-weight:600 ; margin: 0.5em auto -0.25em auto;}
+}
+
+p {margin: auto; font-weight: bold;}
+
+
+.tobig {font-size: 0.87em; font-weight: bolder;}
+    @-webkit-keyframes Gradient {0% {background-position: 0% 50%; background-size: 50% 100%;}50% {background-position: 100% 50%; background-size: 100% 50%;}100% {background-position: 0% 50%;  background-size: 50% 100%;}}
+    @-moz-keyframes Gradient {0% {background-position: 0% 50%; background-size: 50% 100%;}50% {background-position: 100% 50%; background-size: 100% 50%;}100% {background-position: 0% 50%;  background-size: 50% 100%;}}
+    @keyframes Gradient {0% {background-position: 0% 50%; background-size: 50% 100%;}50% {background-position: 100% 50%; background-size: 100% 50%;}    100% {background-position: 0% 50%;  background-size: 50% 100%;}}

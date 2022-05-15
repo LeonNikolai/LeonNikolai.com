@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Online Store</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Work in progress website">
+    <!--google material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" href="global.css">
+    <!--[if IE]><link rel="stylesheet" href="ie11.css"><![endif]-->
+    <!--normalize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+        integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous">
+    <!--Eric Meyer’s “Reset CSS”-->
+    <link rel="stylesheet" href="https://cdnjss.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+        integrity="sha256-7VVaJ5GDwFQiLIc+eNksQLUSSY5JNZtqv9o2BI8UGYg=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.css">
+</head>
+
+<body>
+    <header class="cf" id="topbar"><button class="burger">≡</button><a class="logo" href="./index.html">PapirArket</a>
+        <form class="field cf" id="sitesearch" accept-charset="utf-8" role="search" autocomplete="off"><input
+                class="query" type="search" name="q" placeholder="search"><select class="dropdown" name="c">
+                <option class="initial" value="" disabled selected hidden>categories</option>
+                <option value="everything">everything</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Popcorn">Popcorn</option>
+                <option value="Computers">Computers</option>
+                <option value="Compduters">Compduters</option>
+            </select><input class="material-icons button" type="submit" value="search"></form><button
+            class="material-icons cart">shopping_cart</button>
+        <nav class="topnav"></nav>
+    </header>
+    <main id="content">
+        <section class="product">
+            <div class="product-gallery"><a href="image/product/large/pencil.jpg" data-lightbox="imageset"
+                    data-title="Standard HB Pencile"><img src="image/product/large/pencil.jpg"
+                        alt="Standard HB Pencile"></a>
+                <div class="smaller"><a href="image/product/large/pencil2.jpg" data-lightbox="imageset"
+                        data-title="Pencile Eraser"><img src="image/product/small/pencil2.jpg"
+                            alt="Pencile Eraser"></a><a href="image/product/large/pencil3.jpg" data-lightbox="imageset"
+                        data-title="Pencile H, H2,H3"><img src="image/product/small/pencil3.jpg"
+                            alt="Pencile H, H2,H3"></a><a href="image/product/large/pencil4.jpg"
+                        data-lightbox="imageset" data-title="Pencile erraser trash"><img
+                            src="image/product/small/pencil4.jpg" alt="Pencile erraser trash"></a></div>
+            </div>
+            <div class="side">
+                <article class="product-about">
+                    <h2>Pencile</h2>
+                    <p>A normal pencile that is used to compleate manny tasks. Perfect for anny human. </p>
+                    <h3>features</h3>
+                    <ul>
+                        <li>Drawing</li>
+                        <li>Writing</li>
+                        <li>Notation</li>
+                        <li>Math</li>
+                        <li>Documentation</li>
+                    </ul>
+                </article>
+                <form class="product-cart cf" accept-charset="utf-8" autocomplete="off">
+                    <fieldset>
+                        <legend>Type</legend><input type="radio" id="HB" name="type" value="HB" checked><label
+                            for="HB">HB</label><br><input type="radio" id="2H" name="type" value="2h"><label
+                            for="2H">2H</label><br><input type="radio" id="3H" name="type" value="3h"><label
+                            for="3H">3H</label><br><input type="radio" id="4H" name="type" value="4h"><label
+                            for="4H">4H</label><br>
+                    </fieldset>
+                    <fieldset><input type="radio" id="5H" name="type" value="5h"><label for="5H">5H</label><br><input
+                            type="radio" id="6H" name="type" value="6h"><label for="6H">6H</label><br><input
+                            type="radio" id="7H" name="type" value="7h"><label for="7H">7H</label><br><input
+                            type="radio" id="8H" name="type" value="8h"><label for="8H">8H</label><br></fieldset>
+                    <fieldset><input type="radio" id="9H" name="type" value="9H"><label for="9H">9H</label><br><input
+                            type="radio" id="H" name="type" value="h"><label for="H">H</label><br><input type="radio"
+                            id="B" name="type" value="B"><label for="B">B</label><br><input type="radio" id="F"
+                            name="type" value="F"><label for="F">F</label></fieldset><br><span class="price">13kr +
+                        (frakt)</span><br><span class="field"><input id="product-amount" type="number" min="0" max="99"
+                            step="1"><input type="button" value="Add To Cart" onclick="increaseValue()"></span><input
+                        id="buynow" type="submit" value="Buy Now">
+                </form>
+                <div class="product-beskrivelse"></div>
+            </div>
+        </section>
+        <section>
+            <h2>recommended products</h2>
+            <ul class="products">
+                <li><a href="./product.html" title="Colored Pencils">
+                        <figure><img src="image/product/small/colorpencil.jpg" alt="Colored Pencils preview image" />
+                        </figure>
+                        <div class="desc">
+                            <h3>Colored Pencils</h3>
+                            <p>For those who is tired of gray</p><span class="price">30kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Ink Pen">
+                        <figure><img src="image/product/small/pen.jpg" alt="Ink Pen preview image" /></figure>
+                        <div class="desc">
+                            <h3>Ink Pen</h3>
+                            <p>Used with ink to create something classy</p><span class="price">400kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Pen Ink">
+                        <figure><img src="image/product/small/pen-ink.jpg" alt="Pen Ink preview image" /></figure>
+                        <div class="desc">
+                            <h3>Pen Ink</h3>
+                            <p>Ink for the Pen that need</p><span class="price">199kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Paint">
+                        <figure><img src="image/product/small/paint.jpg" alt="Paint preview image" /></figure>
+                        <div class="desc">
+                            <h3>Paint</h3>
+                            <p>Canvas? Wall? face? we have paint for it</p><span class="price">~500kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Notebook">
+                        <figure><img src="image/product/small/notebook.jpg" alt="Notebook preview image" /></figure>
+                        <div class="desc">
+                            <h3>Notebook</h3>
+                            <p>Note? note this down for later</p><span class="price">40kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Card">
+                        <figure><img src="image/product/small/paper.jpg" alt="Card preview image" /></figure>
+                        <div class="desc">
+                            <h3>Card</h3>
+                            <p>A blank thick card, can be used for birthdays, work or other occations</p><span
+                                class="price">30kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Colored Paper">
+                        <figure><img src="image/product/small/colored-paper.jpg" alt="Colored Paper preview image" />
+                        </figure>
+                        <div class="desc">
+                            <h3>Colored Paper</h3>
+                            <p>Paper for those without paint</p><span class="price">30kr</span>
+                        </div>
+                    </a></li>
+                <li><a href="./product.html" title="Pantone Color Test thing">
+                        <figure><img src="image/product/small/colortest.jpg"
+                                alt="Pantone Color Test thing preview image" /></figure>
+                        <div class="desc">
+                            <h3>Pantone Color Test thing</h3>
+                            <p>Want to print, paint a wall or just look at colors?</p><span class="price">1499kr</span>
+                        </div>
+                    </a></li>
+            </ul>
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.js"></script>
+</body>

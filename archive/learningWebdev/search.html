@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tittle">Planetminecraft</title>
+    <meta name="description" content="Planetminecraft unoffical redesign">
+    <meta name="author" content="Leon Nikolai Engelsvold">
+    <link rel="icon" sizes="any" type="data:image/svg+xml" href="favicon.ico">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <nav id="sitenav">
+      <div class="sitenav-left">
+        <button class="burgertoggle material-icons">menu</button><a href="./index.html"><img class="icon-medium" src="./icons/favicon.png" alt="" srcset=""></a><span class="sitebrand">Planetminecraft</span><span class="sitetittle">Mods</span>
+      </div>
+      <div class="sitenav-middle">
+        <div class="sitenav-leftmiddle">
+          <form id="sitesearch" accept-charset="utf-8" role="search" autocomplete="off">
+            <input class="searchfield" type="search" name="q" placeholder="search">
+            <input class="material-icons button" type="submit" value="search">
+            <input class="material-icons button" type="button" value="keyboard_arrow_down">
+          </form>
+        </div>
+        <div class="profile">
+          <div class="profile-left"><span class="profile-name">Username</span><span class="profile-level">lv 500</span></div><img class="profile-avatar" src="./img/user.jpg">
+        </div>
+        <button class="material-icons icon-navbar">stars</button>
+        <button class="material-icons icon-navbar">chat</button>
+        <button class="material-icons icon-navbar search">search</button>
+      </div>
+      <div class="siteright"></div>
+    </nav>
+    <div id="sitewrapper">
+      <div id="siteleft">
+        <nav id="sidenav">
+          <section class="item-category">
+            <div class="selected-category">
+              <div href="./"><img class="icon icon-medium" src="./icons/gear.svg" alt=""><span class="tittle">Mods</span></div>
+              <div class="filter-settings-large">
+                <label class="row"><span>Category </span>
+                  <select id="lb1">
+                    <option select>all</option>
+                    <option>Astetic</option>
+                    <option>Functional</option>
+                    <option>Fix</option>
+                    <option>New Content</option>
+                    <option>Program</option>
+                    <option>Server</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label class="row"><span>Game version</span>
+                  <select id="lb2">
+                    <option select>1.16</option>
+                    <option>all</option>
+                    <option>1.15</option>
+                    <option>1.14</option>
+                    <option>1.13</option>
+                  </select>
+                </label>
+                <label class="row"><span>Time</span>
+                  <select id="lb2">
+                    <option select>all time</option>
+                    <option>last day</option>
+                    <option>last week</option>
+                    <option>last month</option>
+                    <option>last year</option>
+                    <option>last 2018</option>
+                    <option>last 2017</option>
+                    <option>last 2016</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="category-unselected"><a href="./"><img class="icon icon-site" src="./icons/steve.svg" alt=""><span>Skins</span></a><a href="./"><img class="icon icon-site" src="./icons/maps.svg" alt=""><span>Maps</span></a><a href="./"><img class="icon icon-site" src="./icons/server.svg" alt=""><span>Servers</span></a><a href="./"><img class="icon icon-site" src="./icons/mob.svg" alt=""><span>Mob Skins</span></a></div>
+          </section>
+        </nav>
+        <div class="sitenav-links"><a href="./">Community</a><a href="./">Forum</a><a href="./">Tools</a><a href="./">About</a><a href="./">Contact</a></div>
+      </div>
+      <main role="main" id="main">
+        <div class="filter-settings-small">
+          <div class="pages"><a href="./">1</a><a href="./">2</a><a href="./">3</a><a href="./">4</a><a href="./">5</a><a href="./">6</a></div>
+          <label class="row"><span>sort</span>
+            <select id="lb2">
+              <option select>last uppdated</option>
+              <option>last day</option>
+              <option>popularity</option>
+              <option>trending</option>
+              <option>upploaded</option>
+              <option>views</option>
+              <option>downloads</option>
+              <option>comments</option>
+            </select>
+          </label>
+        </div>
+        <section class="content-grid">
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode fivefivefivefivefivefivefivefivefive</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">8462<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">1971</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">2254</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">2959<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">6511</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">9244</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">3195<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">1336</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">2407</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">3547<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">7470</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">2912</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">2614<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">945</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">6352</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">6212<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">7638</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">149</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">8804<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">2715</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">9562</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">293<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">8112</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">7247</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">7762<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">7821</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">7895</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">841<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">6421</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">3947</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">6669<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">3872</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">5414</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">6672<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">3375</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">8492</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">1382<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">4348</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">3557</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">3332<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">6053</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">5929</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">8859<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">7745</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">9512</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">5796<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">4895</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">4969</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">4670<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">8428</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">762</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">3626<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">1582</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">847</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">7811<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">3099</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">1566</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">201<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">5767</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">6606</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">3648<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">6774</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">7243</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">6740<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">8220</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">4083</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">Beastmode five</span><span class="card-compatibility">Minecraft 1.14</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">805<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">3086</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">6124</span><br/><span class="card-credit">created by </span><span class="card-creator">Username</span></div></a></div>
+          <div class="item"><a class="card" href="./project.html">
+              <div class="card-top"><span class="card-tittle">yes</span><span class="card-compatibility">Minecraft 1.12</span></div><img class="card-image" src="./testimg.jpg" alt=""/>
+              <div class="card-bottom"><span class="icon-count">438<img class="icon icon-diamond" src="./icons/diamond.svg"/></span><img class="icon icon-star" src="./icons/star.svg"/><span class="icon-count">1192</span><img class="icon icon-download" src="./icons/download.svg"/><span class="icon-count">3480</span><br/><span class="card-credit">created by </span><span class="card-creator" href="/">Username</span></div></a></div>
+        </section>
+      </main>
+      <div class="siteright">ads</div>
+      <footer id="sitefooter"></footer>
+    </div>
+    <script src="main.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,338 @@
+/* ------------------------------------------------ Root/RESET / fix */
+:root {
+    font-family: sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.clearfix::after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+a {
+    text-decoration: none;
+    font-weight: inherit;
+    color: inherit;
+}
+
+p a {
+    text-decoration: underline IndianRed;
+    color: IndianRed;
+}
+p a:hover {
+    text-decoration: underline coral;
+    color: coral;
+}
+
+.container {
+    max-width: 1010px;
+    margin: auto;
+    padding: 0.5rem; /* Padding for å ungå at ikoner treffer kanten */
+}
+
+/* ------------------------------------------------ NAVIGATION ved bare bruk av float */
+.navsection {    /* for å ha border og farge som */
+    border-bottom: 1px solid lightgrey;
+    background: white;
+    color: grey;
+}
+
+#mainnav {
+    line-height: 100%;
+    box-sizing: content-box;
+}
+
+#mainnav ul {
+    display: block;
+    float: right;
+    margin: 1rem 0;
+}
+
+#mainnav ul li {
+    float: right;
+    margin: 0 0 0 0.5rem;
+    display: contents;
+}
+
+#mainnav ul li a {
+    box-sizing: border-box;
+    font-size: 1rem;
+    height: 3rem;
+    padding: 1rem;
+    background: white;
+    font-weight: bold;
+    margin: auto;
+    border-radius: 0.25rem;
+}
+
+#mainnav ul li a:hover {
+    background: whitesmoke;
+}
+
+.icon {
+    box-sizing: border-box;
+    height: 3rem;
+    padding: 0.5rem;
+    display: block;
+    margin: 0 0.5rem 0 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#mainnav .icon {
+    /* lets me use icon class elsewhere with diffrent results*/
+    -webkit-user-select: none;
+    float: left;
+
+    /* Bruke padding til å styre størrelsen av spesefike ikoner */
+}
+
+.icon:hover {
+    opacity: 0.40;
+}
+
+/* BURGER MENU */
+#mainnav .burger.icon {
+    display: none;
+}
+
+
+/* ------------------------------------------------ Header */
+.headersection {
+    width: 100%;
+    background: url(ladybugs.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.headersection .container {
+    padding: 5% 0;
+    color: white;
+    display: inline-block;
+    box-sizing: content-box;
+    min-width: 2rem;
+}
+
+.calltoaction {
+    display: inline-block;
+    max-width: 6em;
+    padding: 1rem;
+    background: IndianRed;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+.calltoaction:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ------------------------------------------------ CONTENT */
+#content {
+    width: 100%;
+    box-sizing: border-box;
+}
+#content .container {
+    margin: auto;
+}
+.liste ul li {
+    float: left;
+    min-width: 20em;
+    padding: 2em 0;
+    box-sizing: border-box;
+}
+
+.liste ul li:nth-child(even) {
+    background: whitesmoke;
+}
+.liste ul li h2, .liste ul li p {
+    margin: 0 0 0.5em 0;
+    float: left;
+}
+
+.liste ul li div {
+    float: left;
+    width: calc(100% - 6em);
+}
+.job {
+    color: grey;
+    font-weight: lighter;
+}
+.liste ul li .icon{
+    float: left;
+    height: 5em;
+    padding: 1em;
+    box-sizing: border-box;
+}
+.liste ul li .icon.face {
+    border-radius: 50%;
+    padding: 0.35em;
+}
+.articles article p img {
+    width: 50%;
+    max-width: 25em;
+    padding: 0 0 3% 3%;
+    float: right;
+}
+
+.articles article h2,
+.articles article p {
+    margin-bottom: 0;
+    width: 100%;
+    float: left;
+}
+
+.contactform {
+    background: whitesmoke;
+}
+form {
+    width: 70%;
+    margin: auto;
+    padding: 4em 0;
+    box-sizing: border-box;
+}
+form > div {
+    margin: 0;
+    background: white;
+}
+form > p {
+    margin: 1rem 0 0 0;
+    padding: 0;
+}
+input[type="submit"] {
+    float: right;
+    width: 3em;
+}
+input[type="email"] {
+    margin: 0 auto 0 0
+}
+legend {
+    margin: 1rem auto;
+    font-size: 2rem;
+}
+.textarea {
+    float: left;
+    width: calc(100% - 4em);
+    min-height: 2em;
+    border: 1px darkgrey solid;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------ FOOTEWR */
+.footersection {
+    color: white;
+    background: IndianRed;
+    fill: green;
+}
+
+.footersection section {
+    padding: 0 1rem 0 0;
+    float: right;
+}
+.footersection .contactinfo {
+    float: left;
+}
+.footersection section:not(:first-child) {
+    padding: 0 1rem;
+}
+
+.social-links {
+}
+
+.social-links li {
+    float: left;
+}
+
+@media (max-width : 500px) { /* Mobile layout */
+    body.expanded {
+        overflow: hidden;
+    }
+
+    #mainnav .burger.icon {
+        display: block;
+        width: 3rem;
+        font-size: 2rem;
+        font-family: serif;
+        font-weight: normal;
+        background: rgba(0, 0, 0, 0.0);
+        float: right;
+        margin: 0;
+    }
+
+    #mainnav.expanded>.burger.icon {
+        background: rgba(0, 0, 0, 0.5);
+        font-size: 0;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        z-index: 2;
+        float: none;
+        top: 0;
+        right: 0;
+        transition: background 0.1s linear;
+    }
+
+    #mainnav.expanded>ul>.burger.icon {
+        height: 3rem;
+        margin: 0.5rem 0.5rem 0 auto;
+        float: none;
+    }
+
+    #mainnav ul {
+        position: fixed;
+        z-index: 2;
+        display: block;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background: whitesmoke;
+        float: none;
+        transition: right 0.15s cubic-bezier(0, .62, .62, 1);
+    }
+
+    #mainnav.expanded ul {
+        right: 0%;
+    }
+
+    #mainnav ul li {
+        float: none;
+        border-bottom: 1px solid lightgrey;
+        display: block;
+    }
+
+    #mainnav ul li a {
+        display: block;
+        height: 3rem;
+        padding: 1rem;
+        margin: 0.5em;
+    }
+
+    .articles article p img {
+        width: 100%;
+        padding: 1em 0;
+        margin: 0;
+        max-width: none;
+        box-sizing: border-box;
+    }
+
+}

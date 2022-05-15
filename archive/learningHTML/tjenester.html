@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">    <!-- COMPATEBILITY:mobile (set the zoom level)-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">                   <!-- IE COMPATEBILITY-->
+    <title>Maursluker | tjenester</title>                                   <!-- Text in tab -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">      <!-- Icon in tab -->
+    <meta name=description content="">                                      <!-- Description likely used google results -->
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">   <!--Normalize from cloudflare cdn -->
+    <link rel=stylesheet href="global.css"> <!-- Styling -->
+</head>
+
+<body>
+    <div class="navsection">
+        <nav id=mainnav class="clearfix container">
+            <a href=index.html>
+                <img src="icons/logo.svg" class=icon>
+            </a>
+            <button onclick="expandmenu()" class="icon burger">≡</button>
+            <ul>
+                <button onclick="expandmenu()" class="icon burger">⨯</button>
+                <li><a href=tjenester.html title="tjenester">tjenester</a></li>
+                <li><a href=om_oss.html title="om oss">om oss</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="headersection">
+        <header class="container clearfix">
+            <h1>Våre Tjenester</h1>
+            <a class=calltoaction href="https://google.com/search?q=dummylink" title="dummylink">Bestill</a>
+        </header>
+    </div>
+    <div id="content">
+        <main class="container clearfix">
+            <section class="liste">
+                <ul class="clearfix">
+                    <li>
+                        <img src="icons/black/bug_report-24px.svg" class="icon"></img>
+                        <div>
+                            <h2>Fjerne skadedyr</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque eos illo cumque atque expedita provident ratione aut sit. Eaque nam consectetur unde voluptates, id aspernatur vel odit! Ad, nostrum.</p>
+                        </div>
+                    </li>
+                    <li>
+                            <img src="icons/black/pets-24px.svg" class="icon"></img>
+                            <div>
+                                <h2>Håndtering av eksotiske dyr</h2>
+                                <p>orem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque eos illo cumque atque expedita provident ratione aut sit. Eaque nam consectetur unde voluptates, id aspernatur vel odit! Ad, nostrum.</p>
+                            </div>
+                    </li>
+                    <li>
+                            <img src="icons/black/info-24px.svg" class="icon"></img>
+                            <div>
+                                <h2>Informasjon om alt dyr</h2>
+                                <p>orem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque eos illo cumque atque expedita provident ratione aut sit. Eaque nam consectetur unde voluptates, id aspernatur vel odit! Ad, nostrum.</p>
+                            </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+<div class="footersection">
+        <footer class="container clearfix">
+                <section class="contactinfo">
+                    <h3>contact info</h3>
+                    <p>
+                        Mail: tullemail@gmail.tull<br>
+                        Tlf: (+00)000 00 000<br>
+                        Adresse: tulleveien 92, 0000 oslo<br>
+                    </p>
+                </section>
+                <section>
+                    <ul class="social-links clearfix">
+                        <h3>Where to find us:</h3>
+                        <li>
+                            <a href=https://fb.me>
+                                <img src="icons/facebook.svg" class="icon">
+                            </a>
+                        </li>
+                        <li>
+                            <a href=https://twitter.com>
+                                <img src="icons/twitter.svg" class=icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=https://twitter.com>
+                                <img src="icons/instagram.svg" class=icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=https://medium.com>
+                                <img src="icons/medium.svg" class=icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=https://youtu.be>
+                                <img src="icons/youtube.svg" class=icon>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </footer>
+</div>
+<!-- -------------------SCRIPTS----------------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Jquery versjon 3.4.1 fra google cdn -->
+    <script src=script.js></script> <!-- simple scripts for "activation of burger menu", -->
+</body>
+</html>

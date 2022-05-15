@@ -1,0 +1,37 @@
+html, body {
+  height: 130%;
+  width: 100%;
+  margin: 0;
+  background: #333;
+  background-image: url("test.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+  font-family: "Playfair Display", serif;
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap");
+}
+
+.test {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.test2 {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+p, h1, pre {
+  font-family: "Playfair Display", serif;
+  color: #444;
+}
+
+.wrap {
+  padding: 0.5rem;
+  margin: auto;
+}
+
+/*# sourceMappingURL=style.css.map */

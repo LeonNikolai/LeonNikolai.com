@@ -1,0 +1,45 @@
+body {font-size: 0.1rem; display:flex;}
+
+
+.button {
+    margin:auto;
+	background-color: #1abc9c;
+	border: 0;
+	border-radius: 20%;
+	outline: none;
+	padding: 5em;
+	color: #ffffff;
+	position: relative;
+	width: 50em;
+	height: 50em;
+}
+
+.button::before {
+	content: ' ';
+	border-radius: 2% / 50%;
+	background-color: #1abc9c;
+	position: absolute;
+	top: 17%;
+	bottom: 17%;
+	right: -1.5%;
+	left: -1.5%;
+	z-index: -1;
+}
+
+.button::after {
+	content: ' ';
+	border-radius: 50% / 2%;
+	background-color: #1abc9c;
+	position: absolute;
+	top: -1.5%;
+	bottom: -1.5%;
+	right: 17%;
+	left: 17%;
+	z-index: -1;
+}
+
+button:hover,
+button:hover::before,
+button:hover::after {
+    background-color: black;
+}

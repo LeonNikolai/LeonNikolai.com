@@ -1,0 +1,139 @@
+#head-pos {
+    pointer-events: none;
+    --x: 47vw;
+    --y: 5em;
+    transform: translate(var(--x), var(--y));
+    will-change: transform;
+    transition: transform .2s linear;
+    position: absolute;
+    top:0;
+    left:0;
+    user-select: none;
+}
+#head {
+    pointer-events: none;
+    --rotate: 0deg;
+    transform:  rotate(var(--rotate));
+    will-change: transform;
+    background-image: url("head/front.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 11.25em;
+    width: 8em;
+    user-select: none;
+}
+#head.front { background-image: url("head/front.png");}
+#head.upp { background-image: url("head/upp.png");}
+#head.uppMore { background-image: url("head/uppMore.png");}
+#head.right { background-image: url("head/right.png");}
+#head.rightMore { background-image: url("head/rightMore.png");}
+#head.left { background-image: url("head/left.png");}
+#head.leftMore { background-image: url("head/leftMore.png");}
+#head.down { background-image: url("head/down.png");}
+#head.downMore { background-image: url("head/downMore.png");}
+.background{
+    height: 0;
+    width: 0;
+    position: fixed;
+    float: left;
+    z-index: -1;
+}
+
+html {
+    height: 100%;
+}
+body {
+    padding: 0;
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background: 
+    radial-gradient(circle, rgba(255, 255, 255, .5) 0%, rgb(255, 255, 255, 0) 100%),
+    linear-gradient(90deg, rgba(255, 77, 77, 0.25) 0%, rgba(255, 0, 0, 0) 50%, rgba(255, 255, 0, 0.25) 100%), 
+    linear-gradient(0, rgba(0, 255, 255, 0.25) 0%, rgb(0, 0, 255,.25) 100%);
+    background-attachment: fixed;
+}
+* {
+    box-sizing: border-box;
+}
+.credit {
+    color: rgba(0, 0, 0, 0.342);
+    padding:1em;
+    z-index: -2;
+}
+
+.logo {
+    border-radius: 100vh;
+}
+#site {
+ width: 100%;
+}
+
+.description {
+    text-align: center;
+    padding: 4em 1em 2em 1em;
+}
+
+section {
+    margin: auto;
+    max-width: 40em;
+}
+.icon {
+    height: 1.5em;
+    width: 1.5em;
+}
+.links {
+    list-style: none;
+    padding: 0 .5em;
+    width: 100%;
+}
+.links > li {
+    display: block;
+    margin-bottom: .5em;
+}
+.listLink {
+    width: 100%;
+    --bk:  rgb(0, 0, 0);
+    --clr: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: #fff;
+    color: var(--clr);
+    padding: 1em;
+    border-radius: .25em;
+    background: #999;
+    background: var(--bk);
+    justify-items: center;
+    line-height: 1;
+    background-origin: border-box;
+}
+.listLink:hover {
+    background: #fff;
+    background: 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.103) 0%,rgba(255, 255, 255, 0) 100%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.103) 0%,rgba(255, 255, 255, 0) 100%),
+    linear-gradient(120deg, #902020, #84981a, #359635, #2e8b8c, #2e269d, #872183, #902020);
+    background-size: 700% 100%;
+    animation: AnimationName 5s linear infinite;
+}
+.listLink:hover .icon {
+    animation: pop .3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    100%{background-position:700% 50%}
+}
+@keyframes pop {
+    0%{
+        transform: scale(1.5);
+    }
+    100%{transform: none;}
+}
+.listLink .icon{
+    margin: 0 1em 0 0;
+}

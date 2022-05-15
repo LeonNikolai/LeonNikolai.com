@@ -6,6 +6,11 @@ html, body {
 }
 
 body {
+  --color: red;
+  --text: var(--black);
+  --textContrast: var(--white);
+  --white: white;
+  --black: black;
   -webkit-overflow-scrolling: touch;
   margin: 0;
   font-family: "Nunito", sans-serif;
@@ -35,7 +40,6 @@ canvas {
 }
 
 .bk-solid {
-  --color: red;
   background: linear-gradient(var(--color), var(--color));
   transition: --color 1s linear;
 }
@@ -83,10 +87,13 @@ canvas {
 }
 #content p {
   max-width: 60ch;
+  margin: 1em auto;
+  padding: 1em;
+  color: var(--text);
+  border-radius: 0.5em;
 }
 #content article {
   padding: 1em;
-  background: rgba(255, 255, 255, 0.437);
   border-radius: 0.5em;
   margin: 1em;
 }
@@ -150,6 +157,11 @@ ul.list li a .type {
   width: 10ch;
   text-align: right;
   font-weight: bold;
+}
+
+h2.badTittle {
+  border-radius: 0;
+  color: red;
 }
 
 .sectionHeader {
